@@ -37,3 +37,19 @@ You'll need to access the custom_size of the Sprite and multiply the image's wid
 
 ## The image is blurred now, how do I make my pixel art sharp?
 
+We can use the [default_nearest](https://docs.rs/bevy/latest/bevy/prelude/struct.ImagePlugin.html#method.default_nearest) from ImagePlugin to achieve that
+
+`DefaultPlugins.set(ImagePlugin::default_nearest())`
+
+```
+fn main() -> AppExit {
+    App::new()
+        .add_plugins
+        (
+            DefaultPlugins
+                .set(ImagePlugin::default_nearest())
+        )
+        .add_systems(Startup, setup)
+        .run()
+}
+```

@@ -2,19 +2,22 @@ use bevy::prelude::*;
 
 fn main() -> AppExit {
     App::new()
-        .add_plugins(DefaultPlugins) // game window
+        .add_plugins(
+            DefaultPlugins
+                .set(ImagePlugin::default_nearest())
+        ) // game window
         .insert_resource(ClearColor(Color::linear_rgb(0.2, 0.1, 0.9))) // backgorund colour
         .add_systems(Startup, setup) // spawn camera
         .run()
 }
 
 fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
-    commands.spawn(Camera2d::default());
+    commands.spawn(Camera2d);
 
     //commands.spawn(Sprite::from_image(asset_server.load("Arex_V_char_example.png"))); // if you want to load the image without any adjustments
     commands.spawn(Sprite {
         image: asset_server.load("Arex_V_char_example.png"),
-        custom_size: Some(Vec2::new((19. * 4.), (29. * 4.))), //if you want to scale it, get the size of the sprite image and multiply it by a f32 to get desired size
+        custom_size: Some(Vec2::new(19. * 4., 29. * 4.)), //if you want to scale it, get the size of the sprite image and multiply it by a f32 to get desired size
         ..default()
     });
 }
