@@ -15,13 +15,13 @@ The Plugin that defines an interface for windowing support in Bevy is the [Windo
 ---
 ## How to spawn the camera:
 
-`commands.spawn(Camera2d::default());`
+`commands.spawn(Camera2d);`
 
 You can add it in a system, like a setup system for example:
 
 ```
 fn setup(mut commands: Commands) {
-    commands.spawn(Camera2d::default());
+    commands.spawn(Camera2d);
 }
 ```
 
