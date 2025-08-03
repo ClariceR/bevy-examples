@@ -23,3 +23,17 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
 }
 ```
 
+## How do I change the size of the sprite's image?
+
+You'll need to access the custom_size of the Sprite and multiply the image's width (x) and hight (y) to a float number to get the desired size.
+
+```
+    commands.spawn(Sprite {
+        image: image_handle,
+        custom_size: Some(Vec2::new((19. * 4.), (29. * 4.))),
+        ..default()
+    });
+```
+
+## The image is blurred now, how do I make my pixel art sharp?
+
