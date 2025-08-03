@@ -13,6 +13,9 @@ The [Vec2](https://docs.rs/bevy/latest/bevy/prelude/struct.Vec2.html) is a struc
 
 `custom_size: Some(Vec2::new(100., 100.))` reads like: *Set the sprite's x value to 100.0 and the y vlaue to 100.0*.
 
+---
+## ..default()?
 
+We need to implement all the Sprite's traits so we can use ..default() at the end to take care of all the other traits we don't care about.
 
 
