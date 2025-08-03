@@ -13,6 +13,40 @@ This plugin group will add [all the default plugins](https://docs.rs/bevy/latest
 The Plugin that defines an interface for windowing support in Bevy is the [WindowPlugin](https://docs.rs/bevy/latest/bevy/prelude/struct.WindowPlugin.html)
 
 ---
+## How to customise the game window:
+
+`DefaultPlugins.set()`
+
+You can customise the window by using the set method:
+
+```
+use bevy::{prelude::*, window::WindowResolution};
+
+fn main() -> AppExit {
+    App::new()
+        .add_plugins
+        (
+            DefaultPlugins
+                .set(WindowPlugin {
+                    primary_window: Some(Window { 
+                        resolution: WindowResolution::new(640., 480.).into(),
+                        title: "Game Name".into(),
+                        name: Some("Primary Window".to_string()),
+                        resizable: false,
+                        ..default()
+                    }),
+                    ..default()
+                })
+        )
+        .run()
+}
+```
+
+The WindowPlugin will spawn a Window entity with the PrimaryWindow marker component if primary_window is Some.
+
+Then we can access the properties of the window and change them accordingly.
+
+---
 ## How to spawn the camera:
 
 `commands.spawn(Camera2d);`

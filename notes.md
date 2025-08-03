@@ -23,6 +23,20 @@ You can access resource data in systems using the Res and ResMut system paramete
 Only one resource of each type can be stored in a World at any given time.
 
 ---
+## Some()?
+
+Sometimes it's desirable to catch the failure of some parts of a program instead of calling panic!; this can be accomplished using the Option enum.
+
+The Option\<T> enum has two variants:
+
+- None, to indicate failure or lack of value, and
+- Some(value), a tuple struct that wraps a value with type T.
+
+The [primary_window](https://docs.rs/bevy/latest/bevy/window/struct.PrimaryWindow.html) property is of type Option\<Window>.
+
+The WindowPlugin will spawn a Window entity with this component if primary_window is Some.
+
+---
 All links:
 
 [Bevy Prelude Doc](https://docs.rs/bevy/latest/bevy/prelude/index.html)
